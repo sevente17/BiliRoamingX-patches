@@ -36,9 +36,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew generateMeta clean
-      - name: Setup semantic-release
-        run: npm install
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
-        run: npm exec semantic-release
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-build-apk
+          path: ./**/*.apk
