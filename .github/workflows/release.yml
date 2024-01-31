@@ -36,7 +36,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew generateMeta clean
-      - name: Upload APK
       - name: Setup semantic-release
         run: npm install
       - name: Release
